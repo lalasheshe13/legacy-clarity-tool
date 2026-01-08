@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -15,7 +15,6 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
 # Legacy Clarity Tool (Embrace Transitions)
 
 A lightweight, people-centered web app that helps individuals organize key information and decisions across life transitions—so responsibilities are clear, wishes are documented, and next steps are actionable.
@@ -75,4 +74,4 @@ The goal is clarity, not perfection.
 npm install
 
 npm run dev
->>>>>>> d52f29e94c048b16d87ac3c0189b646c2c71b9ad
+d52f29e94c048b16d87ac3c0189b646c2c71b9ad
