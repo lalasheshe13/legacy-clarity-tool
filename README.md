@@ -54,3 +54,6 @@ The goal is clarity, not perfection.
    ```bash
    git clone <REPO_URL>
    cd legacy-clarity-tool
+npm install
+
+npm run dev
