@@ -26,3 +26,4 @@ In real life, critical info often lives in someone’s head. This tool provides 
 ```bash
 npm install
 npm run dev
+_Last updated: January 2026_
