@@ -8,7 +8,9 @@ export default function Home() {
         Answer what you can. You can always come back and update this later.
       </p>
 
-      <Link to="/form">Start</Link>
+     <Link to="/form" style={{ display:"inline-block", padding:"10px 14px", border:"1px solid #ddd", borderRadius:8 }}>
+  Start
+</Link>
     </main>
   );
 }

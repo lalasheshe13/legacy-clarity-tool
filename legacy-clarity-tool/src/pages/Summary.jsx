@@ -1,6 +1,13 @@
 import { Link } from "react-router-dom";
-
-export default function Summary({ formData }) {
+<button
+  type="button"
+  onClick={() => window.print()}
+  style={{ padding:"10px 14px", border:"1px solid #ddd", borderRadius:8, margin:"12px 0" }}
+>
+  Print / Save PDF
+</button>
+import { initialFormData, STORAGE_KEY } from "../state/formState";
+export default function Summary({ formData, setFormData }) {
     const missing = [];
 
   if (!formData?.people?.helpThisWeek) missing.push("Add a ‘help this week’ contact.");
@@ -9,6 +16,7 @@ export default function Summary({ formData }) {
   if (!formData?.keyInfo?.documentsLocation) missing.push("Note where important documents are kept.");
   if (!formData?.gaps?.oneThingToWriteDown) missing.push("Capture one thing you’ve been meaning to write down.");
 <p>Review what you captured. You can go back and edit anytime.</p>
+
       {missing.length > 0 && (
         <section style={{ margin: "20px 0", padding: 12, border: "1px solid #ddd", borderRadius: 8 }}>
           <h2 style={{ marginTop: 0 }}>What’s missing (optional)</h2>
@@ -51,9 +59,27 @@ export default function Summary({ formData }) {
       </section>
 
       <div style={{ display: "flex", gap: 12 }}>
-        <Link to="/form">Back to Form</Link>
-        <Link to="/">Home</Link>
+        <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+  <Link to="/summary" style={{ padding:"10px 14px", border:"1px solid #ddd", borderRadius:8 }}>
+    Save & View Summary
+  </Link>
+  <Link to="/" style={{ padding:"10px 14px", border:"1px solid #ddd", borderRadius:8 }}>
+    Back
+  </Link>
+</div>
       </div>
     </main>
   );
 }
+<button
+  type="button"
+  onClick={() => {
+    const ok = confirm("Clear all saved answers?");
+    if (!ok) return;
+    localStorage.removeItem(STORAGE_KEY);
+    setFormData(initialFormData);
+  }}
+  style={{ padding:"10px 14px", border:"1px solid #ddd", borderRadius:8, marginLeft: 8 }}
+>
+  Clear all
+</button>

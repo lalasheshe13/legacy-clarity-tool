@@ -149,8 +149,14 @@ export default function Form({ formData, setFormData }) {
       </section>
 
       <div style={{ display: "flex", gap: 12 }}>
-        <Link to="/summary">Save & View Summary</Link>
-        <Link to="/">Back</Link>
+      <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+  <Link to="/summary" style={{ padding:"10px 14px", border:"1px solid #ddd", borderRadius:8 }}>
+    Save & View Summary
+  </Link>
+  <Link to="/" style={{ padding:"10px 14px", border:"1px solid #ddd", borderRadius:8 }}>
+    Back
+  </Link>
+</div>
       </div>
     </main>
   );

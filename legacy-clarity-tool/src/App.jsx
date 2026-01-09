@@ -25,7 +25,7 @@ export default function App() {
           path="/form"
           element={<Form formData={formData} setFormData={setFormData} />}
         />
-        <Route path="/summary" element={<Summary formData={formData} />} />
+        <Route path="/summary" element={<Summary formData={formData} setFormData={setFormData} />} />
       </Routes>
     </BrowserRouter>
   );

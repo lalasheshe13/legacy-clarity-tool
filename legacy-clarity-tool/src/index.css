@@ -66,3 +66,12 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+main { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+a, button { font-size: 16px; }
+label { display:block; margin-top:12px; font-weight:600; }
+textarea { width:100%; min-height:70px; padding:10px; margin-top:6px; }
+section { margin-bottom: 28px; }
+@media print {
+  a, button { display: none !important; }
+  main { margin: 0 !important; padding: 0 !important; }
+}
