@@ -68,18 +68,29 @@ export default function Summary({ formData, setFormData }) {
   </Link>
 </div>
       </div>
+      <div style={{ marginTop: "2rem", display: "flex", gap: "1rem" }}>
+  <button
+    type="button"
+    onClick={() => window.print()}
+    style={{ padding: "10px 14px", border: "1px solid #ddd", borderRadius: 8 }}
+  >
+    Print / Save PDF
+  </button>
+
+  <button
+    type="button"
+    onClick={() => {
+      const ok = confirm("Clear all saved answers?");
+      if (!ok) return;
+      localStorage.clear();
+      window.location.href = "/";
+    }}
+    style={{ padding: "10px 14px", border: "1px solid #ddd", borderRadius: 8 }}
+  >
+    Clear all
+  </button>
+</div>
     </main>
   );
 }
-<button
-  type="button"
-  onClick={() => {
-    const ok = confirm("Clear all saved answers?");
-    if (!ok) return;
-    localStorage.removeItem(STORAGE_KEY);
-    setFormData(initialFormData);
-  }}
-  style={{ padding:"10px 14px", border:"1px solid #ddd", borderRadius:8, marginLeft: 8 }}
->
-  Clear all
-</button>
+
