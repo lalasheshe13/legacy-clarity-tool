@@ -1,77 +1,32 @@
+# Legacy Clarity Tool
 
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# Legacy Clarity Tool (Embrace Transitions)
-
-A lightweight, people-centered web app that helps individuals organize key information and decisions across life transitions—so responsibilities are clear, wishes are documented, and next steps are actionable.
-
-This project is intentionally scoped as a small internal-tool-style build: clear workflows, structured inputs, and a usable summary view.
-
----
+A lightweight React app designed to help people capture critical personal, household,
+and responsibility information—so others aren’t left guessing in moments of stress.
 
 ## Why this exists
+In real life, information often lives in people’s heads. This tool focuses on clarity,
+handoff, and practical continuity—not complexity.
 
-In high-stress transitions, people don’t fail because they don’t care.
-They fail because the system is unclear.
+## Features
+- Multi-page flow using React Router (Home → Form → Summary)
+- Controlled inputs with local persistence (localStorage)
+- Summary view with prompts for missing information
+- Print / Save to PDF via browser print
+- Reset / clear flow for reuse
 
-This tool provides a simple structure to capture:
-- who is involved (and what role they play)
-- what matters most (wishes and priorities)
-- where key information lives
-- what’s still unresolved
+## Tech Stack
+- React
+- Vite
+- React Router
+- LocalStorage (intentional choice for privacy and speed)
 
-The goal is clarity, not perfection.
+## Design Decisions
+- No backend yet by design — optimized for fast iteration and sensitive data handling
+- Minimal styling to prioritize usability and clarity
+- Small scope, complete loop
 
----
-
-## Core user stories (v1)
-
-1. As a user, I can enter my key legacy clarity information across a small set of sections.
-2. As a user, I can review everything in a structured summary view.
-3. As a user, I can edit my inputs easily without losing my place.
-4. As a user, I can preserve my work across sessions (local storage).
-5. As a user, I can export a shareable summary (PDF or printable view).
-
----
-
-## Sections (v1)
-
-- **People & Roles**: key contacts, responsibilities, backups
-- **Wishes & Priorities**: what matters most, preferences, values
-- **Key Info**: document locations, access notes, important accounts
-- **Open Questions / Next Steps**: unresolved items and planned actions
-
----
-
-## Tech stack (planned)
-
-- React (frontend)
-- Local state + localStorage (persistence)
-- Optional: PDF export for summary view
-
----
-
-## How to run locally
-
-1. Clone the repo:
-   ```bash
-   git clone <REPO_URL>
-   cd legacy-clarity-tool
+## Getting Started
+```bash
 npm install
-
 npm run dev
-d52f29e94c048b16d87ac3c0189b646c2c71b9ad
+
