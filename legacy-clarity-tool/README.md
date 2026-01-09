@@ -1,16 +1,29 @@
-# React + Vite
+# Legacy Clarity Tool
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A lightweight React app designed to help people capture essential “handoff” information—so others aren’t left guessing in moments of stress.
 
-Currently, two official plugins are available:
+## Why this exists
+In real life, critical info often lives in someone’s head. This tool provides a simple structure to document people, responsibilities, and key information in a way that’s easy to review and share.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- Multi-page flow using React Router (Home → Form → Summary)
+- Controlled inputs with local persistence (localStorage)
+- “What’s missing?” prompts based on incomplete fields
+- Print / Save to PDF via browser print
+- Reset/clear flow for reuse
 
-## React Compiler
+## Tech Stack
+- React + Vite
+- React Router
+- localStorage (intentional MVP choice)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Design Decisions
+- No backend by design (privacy + speed to iterate)
+- Minimal styling to prioritize clarity and usability
+- Tight scope with a complete user loop (capture → persist → summarize)
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Run locally
+```bash
+npm install
+npm run dev
+_Last updated: January 2026_
