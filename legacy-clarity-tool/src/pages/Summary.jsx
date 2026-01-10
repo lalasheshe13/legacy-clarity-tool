@@ -1,3 +1,14 @@
+function formatDate(dateString) {
+  if (!dateString) return null;
+  const date = new Date(dateString);
+  return date.toLocaleString(undefined, {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+  });
+}
 import { Link } from "react-router-dom";
 <button
   type="button"
@@ -7,6 +18,7 @@ import { Link } from "react-router-dom";
   Print / Save PDF
 </button>
 import { initialFormData, STORAGE_KEY } from "../state/formState";
+import Card from "../components/Card";
 export default function Summary({ formData, setFormData }) {
     const missing = [];
 
@@ -31,32 +43,45 @@ export default function Summary({ formData, setFormData }) {
   return (
     <main style={{ maxWidth: 900, margin: "40px auto", padding: "0 16px" }}>
       <h1>Legacy Clarity — Summary</h1>
+      {formData?.lastSaved && (
+  <p style={{ fontSize: 14, color: "rgba(47,47,51,0.6)", marginTop: 6 }}>
+    Last saved {formatDate(formData.lastSaved)}
+  </p>
+)}
       <p>Review what you captured. You can go back and edit anytime.</p>
 
-      <section style={{ marginBottom: 24 }}>
-        <h2>People You Rely On</h2>
-        <p><strong>Key holders:</strong> {formData?.people?.keyHolders || "—"}</p>
-        <p><strong>Help this week:</strong> {formData?.people?.helpThisWeek || "—"}</p>
-      </section>
+      <Card
+  title="People You Rely On"
+  subtitle="Who would step in if you needed help?"
+>
+        <p><strong>Key holders:</strong> {formData?.people?.keyHolders || "Not answered yet"}</p>
+        <p><strong>Help this week:</strong> {formData?.people?.helpThisWeek || "Not answered yet"}</p>
+      </Card>
 
-      <section style={{ marginBottom: 24 }}>
-        <h2>Responsibilities You Carry</h2>
-        <p><strong>Monthly bills:</strong> {formData?.responsibilities?.monthlyBills || "—"}</p>
-        <p><strong>Subscriptions:</strong> {formData?.responsibilities?.subscriptions || "—"}</p>
-        <p><strong>Next 30 days:</strong> {formData?.responsibilities?.next30Days || "—"}</p>
-      </section>
+      <Card
+  title="Responsibilities You Carry"
+  subtitle="List what you currently handle so someone else isn’t left guessing."
+>
+        <p><strong>Monthly bills:</strong> {formData?.responsibilities?.monthlyBills || "Not answered yet"}</p>
+        <p><strong>Subscriptions:</strong> {formData?.responsibilities?.subscriptions || "Not answered yet"}</p>
+        <p><strong>Next 30 days:</strong> {formData?.responsibilities?.next30Days || "Not answered yet"}</p>
+      </Card>
 
-      <section style={{ marginBottom: 24 }}>
-        <h2>Where Important Information Lives</h2>
-        <p><strong>Password storage:</strong> {formData?.keyInfo?.passwordLocation || "—"}</p>
-        <p><strong>Accounts:</strong> {formData?.keyInfo?.accounts || "—"}</p>
-        <p><strong>Documents:</strong> {formData?.keyInfo?.documentsLocation || "—"}</p>
-      </section>
+      <Card
+  title="Where Important Information Lives"
+  subtitle="Note where things are kept—not passwords or numbers, just locations and names."
+>
+        <p><strong>Password storage:</strong> {formData?.keyInfo?.passwordLocation || "Not answered yet"}</p>
+        <p><strong>Accounts:</strong> {formData?.keyInfo?.accounts || "Not answered yet"}</p>
+        <p><strong>Documents:</strong> {formData?.keyInfo?.documentsLocation || "Not answered yet"}</p>
+      </Card>
 
-      <section style={{ marginBottom: 24 }}>
-        <h2>One Thing You’ve Been Putting Off</h2>
-        <p><strong>Note:</strong> {formData?.gaps?.oneThingToWriteDown || "—"}</p>
-      </section>
+      <Card
+  title="One Thing You’ve Been Putting Off"
+  subtitle="There’s usually one thing you’ve meant to write down. This is where it goes."
+>
+        <p><strong>Note:</strong> {formData?.gaps?.oneThingToWriteDown || "Not answered yet"}</p>
+      </Card>
 
       <div style={{ display: "flex", gap: 12 }}>
         <div style={{ display: "flex", gap: 12, alignItems: "center" }}>

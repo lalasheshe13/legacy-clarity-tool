@@ -2,22 +2,24 @@ export default function Card({ title, subtitle, children }) {
   return (
     <section
       style={{
-        background: "var(--card)",
-        border: "1px solid var(--border)",
-        borderRadius: "var(--radius)",
-        boxShadow: "var(--shadow)",
-        padding: 18,
-        marginBottom: 18,
+        background: "rgba(255,255,255,0.85)",
+        border: "1px solid rgba(47,47,51,0.10)",
+        borderRadius: 16,
+        boxShadow: "0 2px 12px rgba(47,47,51,0.06)",
+        padding: 28,
+        margin: "0 auto 22px",
+        maxWidth: 760,
+        backdropFilter: "blur(6px)",
       }}
     >
-      <div style={{ display: "flex", alignItems: "baseline", gap: 10 }}>
-        <h2 style={{ margin: 0 }}>{title}</h2>
-        <span style={{ color: "var(--sage)", fontWeight: 600 }}>•</span>
-      </div>
+      <h2 style={{ margin: 0, fontSize: 22 }}>{title}</h2>
+      {subtitle ? (
+        <p style={{ marginTop: 8, marginBottom: 16, color: "rgba(47,47,51,0.7)" }}>
+          {subtitle}
+        </p>
+      ) : null}
 
-      {subtitle ? <p style={{ marginTop: 6 }}>{subtitle}</p> : null}
-
-      <div style={{ marginTop: 10 }}>{children}</div>
+      <div>{children}</div>
     </section>
   );
 }
